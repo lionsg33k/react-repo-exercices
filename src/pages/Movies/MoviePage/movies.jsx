@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Airplane } from '../../../assets/icons/Airplane';
 import { Images } from '../../../constants';
 import { useNavigate } from 'react-router-dom';
+import { Mycontext } from '../../../context';
 
 
 export const MoviesPage = ({ movies }) => {
 
+    const { MoviesJson } = useContext(Mycontext)
+
     const navigate = useNavigate()
 
-    const [filtredMovies, setFiltredMovies] = useState(movies)
+    const [filtredMovies, setFiltredMovies] = useState(MoviesJson)
 
     const handleSearchMovies = (text) => {
-        const newTab = [...movies]
+        const newTab = [...MoviesJson]
         let result = newTab.filter(e => e.title.toLowerCase().includes(text.toLowerCase()))
-        text ? setFiltredMovies(result) : setFiltredMovies(movies)
+        text ? setFiltredMovies(result) : setFiltredMovies(MoviesJson)
     }
 
 
@@ -53,7 +56,7 @@ export const MoviesPage = ({ movies }) => {
                     {
                         filtredMovies.map((e, i) =>
 
-                            <div onClick={() => { navigate(`/movie/${e.id}`)}} className="w-1/5 cursor-pointer ">
+                            <div onClick={() => { navigate(`/movie/${e.id}`) }} className="w-1/5 cursor-pointer ">
                                 <img height={500} className='w-full object-cover h-[50vh]' src={Images[e.poster]} alt="" />
                                 <div className="p-5 flex flex-col gap-y-3 ">
                                     <h1 className='text-white font-semibold text-xl'>{e.title}</h1>

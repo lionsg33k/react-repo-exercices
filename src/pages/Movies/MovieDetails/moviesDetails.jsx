@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Images } from '../../../constants';
+import { Mycontext } from '../../../context';
 
 export const MoviesDetails = ({ movies }) => {
+
+    const { MoviesJson } = useContext(Mycontext)
 
     const { id } = useParams()
 
