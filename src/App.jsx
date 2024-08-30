@@ -5,6 +5,7 @@ import { ErrorPage } from "./pages/Errors/Error"
 import { MoviesPage } from "./pages/Movies/MoviePage/movies"
 import { MoviesDetails } from "./pages/Movies/MovieDetails/moviesDetails"
 import { MyProvider } from "./context"
+import { CountriesPage } from "./pages/countries/countries"
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/todo" element={<TodoPage />} />
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/movie/:id" element={<MoviesDetails />} />
+          <Route path="/countries" element={<CountriesPage />} />
         </Routes>
       </MyProvider>
 
