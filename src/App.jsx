@@ -6,6 +6,7 @@ import { MoviesPage } from "./pages/Movies/MoviePage/movies"
 import { MoviesDetails } from "./pages/Movies/MovieDetails/moviesDetails"
 import { MyProvider } from "./context"
 import { CountriesPage } from "./pages/countries/countries"
+import { ContactUs } from "./pages/email/email"
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/movie/:id" element={<MoviesDetails />} />
           <Route path="/countries" element={<CountriesPage />} />
+          <Route path="/email" element={<ContactUs />} />
         </Routes>
       </MyProvider>
 
